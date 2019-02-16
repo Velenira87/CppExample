@@ -1,3 +1,9 @@
-git config --global user.name "своё имя"
-git config --global user.email "мыло"
-git init
+git config --global user.name "своё имя"       #
+git config --global user.email "мыло"       #
+git init      #
+git statis     #че там вообще нет
+git add .      #добавить чо-то
+git commit -m "комментарий"  #коммент
+git log    #
+git remote add nazvanie ссылка
+git push nazvanie
