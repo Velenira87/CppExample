@@ -1,0 +1,65 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	int n;
+	cin >> n;
+	int* mas = new int[n];
+	int answer=-1;
+	while (answer!=0)
+	{
+		cout << "1.add" << endl;
+		cout << "2.show" << endl;
+		cout << "3.random" << endl;
+		cout << "0.exit" << endl;
+		cin >> answer;
+		switch (answer)
+		{
+		case 1:
+		{
+			int* mas1 = new int[n + 1];
+
+			for (int i = 0; i < n; i++)
+			{
+				mas1[i] = mas[i];
+			}
+			cin >> mas1[n];
+			delete[] mas;
+			mas = mas1;
+			n++;
+			break;
+		}
+		case 2:
+		{
+			for (int i = 0; i < n; i++)
+			{
+				cout << mas[i];
+			}
+			break;
+		}
+		case 3:
+		{
+			for (int i = 0; i < n; i++)
+			{
+				mas[i] = rand() % 10 - 5;
+				cout << mas[i] << " ";
+			}
+			break;
+		}
+		case 0:
+		{
+			break;
+		}
+		default:
+		{
+			cout << "error, vnature" << endl;
+			break;
+		}
+		}
+	}
+	system("pause");
+}                

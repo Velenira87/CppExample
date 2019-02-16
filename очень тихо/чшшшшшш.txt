@@ -1,0 +1,107 @@
+#include <iostream>
+#include <ctime>
+using namespace std;
+void mass(int* m, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		m[i] = rand() % 20 - 10;
+	}
+}
+int main()
+{
+
+	setlocale(LC_ALL, "Rus");
+	srand(time(NULL));
+	int temp = 0;
+	int ind;
+	int ind1;
+	int n;
+	cin >> n;
+	int sum = 0;
+	cout << "массив:" << endl;
+	int* mas = new int[n];
+	mass(mas, n);
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas[i] << " ";
+	}
+	cout << endl;
+	for (int i = 0; i < n;i++)
+	{
+		if (mas[i] > 0)
+		{
+			sum = sum + mas[i];
+		}
+	}
+	int* mas1 = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		mas1[i] = mas[i];
+	}
+	cout << "сумма положительных элементов:" << endl;
+	cout << sum << endl;
+	for (int i = 0; i < n;i++)
+	{
+		if (mas[i] < 0)
+		{
+			mas[i]=-mas[i];
+		}
+		//cout << mas[i]<<" ";
+	}
+	sum = 1;
+	cout << endl;
+	int max = INT_MIN;
+	int e;
+	int t;
+	for (int i = 0; i < n;i++)
+	{
+		if (mas[i] > max)
+		{
+			max = mas[i];
+			e = i;
+		}
+	}
+	//cout << e << endl;
+	int min=INT_MAX;
+	for (int i = 0; i < n;i++)
+	{
+		if (min > mas[i])
+		{
+			min = mas[i];
+			t = i;
+		}
+	}
+	//cout << t << endl;
+	if (t > e)
+	{
+		swap(t, e);
+	}
+	for (int i = t + 1; i < e; i++)
+	{
+		sum = sum * mas1[i];
+	}
+	cout << "произведение элементов между " << t+1 << " и " << e+1 << " элементами" << endl;
+	cout << sum << endl;
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = 0; j < n - 1; j++)
+		{
+			if (mas1[j] > mas1[j + 1])
+			{
+				// меняем элементы местами
+				temp = mas1[j];
+				mas1[j] = mas1[j + 1];
+				mas1[j + 1] = temp;
+			}
+		}
+	}
+	cout << endl;
+	for (int i = 0; i < n; i++)
+	{
+		cout << mas1[i] << " ";
+	}
+	delete[] mas;
+	delete[] mas1;
+	system("pause");
+}                

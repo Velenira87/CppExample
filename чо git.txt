@@ -1,0 +1,3 @@
+git config --global user.name "своё имя"
+git config --global user.email "мыло"
+git init
